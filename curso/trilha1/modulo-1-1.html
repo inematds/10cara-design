@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.1 · O Sistema de 2 Referências | Nano Banana 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎭</span><span class="font-bold text-lg hidden sm:inline">Nano Banana 2</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Trilha</a>
+          <a href="modulo-1-1.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10 hidden sm:inline">O Sistema</a>
+          <a href="modulo-1-2.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">10 Prompts</a>
+          <a href="modulo-1-3.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:inline">Variações</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha</a><span>/</span>
+      <span class="text-purple-400">Módulo 1.1</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📐 O Sistema de 2 Referências</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A base de todos os 10 prompts: a Referência 1 trava a identidade, a Referência 2 dirige só o figurino, e cada geração cria uma pose e um mundo novos. Domine isto e os outros módulos viram copiar e colar.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Base</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- SVG: equação Ref1 + Ref2 = personagem -->
+    <div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mb-12 overflow-hidden">
+      <svg viewBox="0 0 1000 200" class="w-full h-auto" role="img" aria-label="Referência 1 que trava a identidade mais Referência 2 que dirige o figurino é igual a um personagem novo num mundo novo">
+        <defs>
+          <linearGradient id="m11-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+          <filter id="m11-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <pattern id="m11-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#a855f7" opacity="0.12"/></pattern>
+        </defs>
+        <rect x="0" y="0" width="1000" height="200" fill="url(#m11-grid)"/>
+        <rect x="40" y="58" width="220" height="84" rx="14" fill="#1a1230" stroke="#c084fc" stroke-width="2"/>
+        <text x="150" y="94" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="600" font-size="18">Referência 1</text>
+        <text x="150" y="118" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="13">identidade (rosto)</text>
+        <text x="300" y="108" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="700" font-size="34">+</text>
+        <rect x="340" y="58" width="220" height="84" rx="14" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/>
+        <text x="450" y="94" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-weight="600" font-size="18">Referência 2</text>
+        <text x="450" y="118" text-anchor="middle" fill="#bfe6ff" font-family="Inter,sans-serif" font-size="13">figurino (styling)</text>
+        <text x="600" y="108" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="700" font-size="34">=</text>
+        <g filter="url(#m11-glow)"><rect x="640" y="48" width="320" height="104" rx="16" fill="#1a1230" stroke="url(#m11-grad)" stroke-width="2.5"/></g>
+        <text x="800" y="90" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="600" font-size="19">Personagem novo</text>
+        <text x="800" y="116" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="13.5">mesma pessoa · nova pose · novo mundo</text>
+      </svg>
+    </div>
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🪪 Referência 1 = identidade</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-purple-400">Referência 1</strong> é o coração do sistema. Ela é a fonte única da identidade: estrutura do rosto, proporções faciais, tom de pele, penteado e a aparência reconhecível do personagem. Tudo o que faz alguém ser "aquela pessoa" mora aqui.</p>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que a Ref 1 controla</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Estrutura e proporções do rosto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Tom de pele e textura</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Penteado e formato do cabelo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Formato dos olhos e expressão característica</span></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h4 class="font-bold text-emerald-400 mb-4">✓ O que FAZER</h4><ul class="space-y-3 text-neutral-300"><li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Citar "use Reference 1 como identidade do personagem"</span></li><li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Listar rosto, pele, cabelo e proporções explicitamente</span></li></ul></div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h4 class="font-bold text-red-400 mb-4">✗ O que NÃO fazer</h4><ul class="space-y-3 text-neutral-300"><li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deixar a roupa da Ref 1 "vazar" para o resultado</span></li><li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esperar identidade vindo da Ref 2</span></li></ul></div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-purple-400 mb-3">Conceitos-chave</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Rosto</strong><p class="text-neutral-400">a base da identidade</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Pele</strong><p class="text-neutral-400">tom e textura</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Cabelo</strong><p class="text-neutral-400">forma e penteado</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Proporção</strong><p class="text-neutral-400">a "cara" reconhecível</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">👗 Referência 2 = figurino</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-purple-400">Referência 2</strong> tem um papel deliberadamente estreito: dirigir <strong>apenas</strong> a lógica do figurino. Silhueta, tipo de tecido, acessórios, paleta de cores e o clima de styling. Nada de rosto, nada de identidade.</p>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A frase que se repete</h3>
+        <p class="text-neutral-300">Todos os 10 prompts contêm alguma versão de <em>"Use Reference 2 only as inspiration for the outfit..."</em>. Esse "only" é o que impede a Ref 2 de sequestrar a identidade.</p>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold text-purple-400 mb-3">A Referência 2 dirige</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Silhueta</strong><p class="text-neutral-400">o formato da roupa</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Tecido</strong><p class="text-neutral-400">material e caimento</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Acessórios</strong><p class="text-neutral-400">joias, bolsas, detalhes</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Paleta</strong><p class="text-neutral-400">cores e mood de styling</p></div>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção</h3>
+        <p class="text-neutral-300">Em estilos como o sentai, a Ref 2 inspira a moda mas o traje final é <strong>transformado</strong> (de azul para preto, por exemplo). Inspiração ≠ cópia: a Ref 2 dá vocabulário, não ordens.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🤸 Nova pose sempre</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Cada prompt traz a instrução explícita: <strong class="text-purple-400">"Do not copy the pose from Reference 1 or Reference 2"</strong>, seguida de uma pose nova descrita em detalhe. É o que transforma "repintar" em "mover o personagem por mundos".</p>
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Negar a pose das referências</h4><p class="text-neutral-300 text-sm">A primeira metade da instrução é uma negação: não herde a pose de nenhuma das imagens de entrada.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Descrever uma pose específica</h4><p class="text-neutral-300 text-sm">"Sentado em poltrona vintage, uma perna cruzada", "contrapposto dramático", "três-quartos heroico". Quanto mais concreto, melhor.</p></div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">Casar pose com o mundo</h4><p class="text-neutral-300 text-sm">A pose conversa com o cenário: encostado no carro à noite, sentado no parapeito industrial, de pé na loja de skins.</p></div>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-purple-400 mb-3">Conceitos-chave</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Negar</strong><p class="text-neutral-400">não copiar a pose</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Especificar</strong><p class="text-neutral-400">pose descrita</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Casar</strong><p class="text-neutral-400">pose + cenário</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Variar</strong><p class="text-neutral-400">nova a cada vez</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">✂️ O split limpo</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O segredo é a <strong class="text-purple-400">separação proposital</strong>: quem a pessoa é (Ref 1) versus como o mundo é estilizado (Ref 2 + gênero). Misture os dois e os resultados ficam aleatórios; mantenha-os separados e tudo fica previsível.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6"><h4 class="font-bold text-emerald-400 mb-4">✓ Split limpo</h4><ul class="space-y-3 text-neutral-300"><li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Identidade só da Ref 1</span></li><li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Figurino só da Ref 2</span></li><li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Resultado reconhecível e repetível</span></li></ul></div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6"><h4 class="font-bold text-red-400 mb-4">✗ Mistura caótica</h4><ul class="space-y-3 text-neutral-300"><li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Rosto influenciado pela Ref 2</span></li><li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Roupa decidida pela Ref 1</span></li><li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Resultado imprevisível a cada geração</span></li></ul></div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Pense em cada prompt como uma planilha de duas colunas: "identidade" e "styling". Se você não consegue dizer de qual coluna uma instrução veio, reescreva-a.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧭 Como usar o sistema</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Na prática, são três movimentos: <strong class="text-purple-400">trave o rosto, troque o gênero, gere uma pose nova</strong>. Repita para cada estilo e você tem uma série inteira do mesmo personagem.</p>
+      <div class="bg-dark-900 rounded-xl border border-dark-600 p-6 mb-6 font-mono text-sm">
+        <div class="text-neutral-500 mb-2">// receita base de qualquer prompt do pacote</div>
+        <div class="text-purple-400">[GÊNERO VISUAL]</div> <span class="text-neutral-300">of the person from</span> <span class="text-purple-400">Reference 1</span><span class="text-neutral-300">,</span><br>
+        <span class="text-neutral-300">using Reference 1 as identity (face, skin, hair, proportions).</span><br>
+        <span class="text-neutral-300">Use</span> <span class="text-sky-400">Reference 2 only</span> <span class="text-neutral-300">for outfit, silhouette, accessories, palette.</span><br>
+        <span class="text-neutral-300">Do not copy the pose. Create a new pose:</span> <span class="text-purple-400">[POSE ESPECÍFICA]</span><span class="text-neutral-300">.</span><br>
+        <span class="text-neutral-300">Place the subject in</span> <span class="text-purple-400">[MUNDO/CENÁRIO]</span><span class="text-neutral-300">.</span>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-purple-400 mb-3">Conceitos-chave</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Lock face</strong><p class="text-neutral-400">Ref 1 fixa identidade</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>Change genre</strong><p class="text-neutral-400">o mundo muda tudo</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong>New pose</strong><p class="text-neutral-400">vida e variedade</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🧠 Por que funciona</h2></div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O sistema é estável porque o rosto vem de uma fonte e a moda de outra — sem nunca travar a imagem numa pose única. Identidade forte + gênero visual forte = um resultado que é, ao mesmo tempo, <strong class="text-purple-400">reconhecível e variado</strong>.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que a separação importa</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>1 identidade</strong> → reaproveitada em 10+ estilos sem retrabalho</li>
+          <li><strong>10 gêneros</strong> → saídas radicalmente diferentes da mesma pessoa</li>
+          <li><strong>0 ambiguidade</strong> → cada instrução tem uma fonte clara</li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-3 flex items-center"><span class="mr-2">🔑</span> A grande sacada</h3>
+        <p class="text-neutral-300">Entender o "porquê" deixa você inventar estilos novos para além dos 10 — qualquer gênero visual entra no mesmo esqueleto: identidade travada, styling emprestado, pose nova.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Referência 1 trava a identidade</strong><span class="text-neutral-400"> — rosto, pele, cabelo, proporções.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Referência 2 só dirige o figurino</strong><span class="text-neutral-400"> — silhueta, acessórios, paleta, mood.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Pose nova sempre</strong><span class="text-neutral-400"> — nunca copie a pose das referências.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Split limpo = repetibilidade</strong><span class="text-neutral-400"> — cada instrução tem uma fonte clara.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">1.2 — Biblioteca dos 10 Prompts</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para a Trilha</a>
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Nano Banana 2 — Character Design Styles · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p></div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

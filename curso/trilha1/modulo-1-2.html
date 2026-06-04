@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.2 · Biblioteca dos 10 Prompts | Nano Banana 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+    .prompt-box { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎭</span><span class="font-bold text-lg hidden sm:inline">Nano Banana 2</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Trilha</a>
+          <a href="modulo-1-1.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:inline">O Sistema</a>
+          <a href="modulo-1-2.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">10 Prompts</a>
+          <a href="modulo-1-3.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:inline">Variações</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha</a><span>/</span>
+      <span class="text-purple-400">Módulo 1.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Biblioteca dos 10 Prompts</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">As dez direções de character design, prontas para copiar e colar. Cada prompt mantém a mesma pessoa (Referência 1) e troca o mundo, a lógica de render e o enquadramento. O texto está em inglês de propósito — funciona melhor nos modelos de imagem.</p>
+      <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">10</div><div class="text-xs text-neutral-400">Prompts</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">EN</div><div class="text-xs text-neutral-400">Idioma</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Copiar</div><div class="text-xs text-neutral-400">1 clique</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-12">
+      <h3 class="text-lg font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span> Como usar</h3>
+      <p class="text-neutral-300 text-sm">Anexe duas imagens no Nano Banana 2: <strong>Referência 1</strong> (a pessoa) e <strong>Referência 2</strong> (inspiração de figurino). Cole o prompt, gere, e repita trocando só o estilo. As imagens ao lado de cada prompt foram geradas localmente com inemaimg como exemplo do mundo visual resultante.</p>
+    </div>
+
+    <!-- 01 -->
+    <section id="p01" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🖼️ Surreal Oil Painting</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/01-surreal-oil.png" alt="Pintura a óleo surreal" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Surreal mid-century editorial oil painting of the person from Reference 1, using Reference 1 as the main character identity, face structure, skin tone, hairstyle, facial proportions, and overall recognizable appearance. Use Reference 2 only as inspiration for the outfit, clothing silhouette, fabric type, accessories, color palette, styling details, and fashion mood. Do not copy the pose from Reference 1 or Reference 2. Create a new relaxed seated pose: the character is sitting confidently in a vintage lounge chair, one leg crossed, one arm resting on the chair, looking slightly away from the viewer with a calm deadpan expression. Place the subject in a stylish surreal lounge interior with cinematic lowbrow atmosphere, elegant café culture energy, strange background characters softly blurred in the distance, palm shadows, distorted decorative architecture, vintage lamps, wine glasses, newspapers, oversized jewelry, and subtle bizarre animal elements integrated into the scene. Painterly brush textures, expressive oil-painted strokes, rich muted color palette, fashionable vintage clothing, sophisticated absurdity, surreal editorial illustration, cinematic composition, contemporary art gallery mood, vertical 4:5 composition. Maintain the recognizable character from Reference 1 while changing the outfit according to Reference 2.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="p02" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">✏️ Funny Doodle</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/02-funny-doodle.png" alt="Doodle engraçado" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Turn the person from Reference 1 into a funny ugly doodle drawing, using Reference 1 as the character identity, face reference, hairstyle, facial features, skin tone, and general appearance. Use Reference 2 only for the outfit, clothing style, accessories, colors, and fashion details. Do not copy the pose from either reference. Make a new awkward pose: the character is standing slightly hunched, arms half-raised in a confused gesture, with exaggerated facial features and a silly uncomfortable expression. Make it look like a quick sketch using cheap marker and crayon: messy, rough, childish style, bad perspective, awkward proportions, slightly exaggerated facial features, uneven outlines, visible scribbly strokes, simple cartoon coloring, lazy internet meme energy. Add a simple cartoon background with random street details, funny small objects, crooked signs, clouds, goofy doodles, badly drawn buildings, and chaotic humorous details. The drawing should look casual, low-quality, hand-made, intentionally stupid-looking, and meme-like. Do NOT make it realistic or polished.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="p03" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎮 Fortnite Shop</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/03-fortnite-shop.png" alt="Card de loja Fortnite" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create a hyper-realistic Fortnite Item Shop character card using Reference 1 as the exact face and identity reference. Preserve the recognizable facial structure, hairstyle, skin tone, proportions, and overall character likeness from Reference 1. Use Reference 2 only for the outfit design, clothing colors, styling details, accessories, and fashion direction. Do not copy the pose from the references. Create a new full-body Fortnite-style character pose: the character stands slightly turned to the side, one hand near the belt or pocket, the other relaxed, with confident game-character posture. Keep the same Fortnite shop layout with a blue gradient background, rarity banner, V-Bucks pricing, cosmetic item icons on the left, and a full-body character render on the right. Transform the person into a stylish urban Fortnite skin with polished stylized realism, clean proportions, detailed clothing inspired by Reference 2, high-quality game render lighting, realistic fabric textures, sharp character presentation, and official item-shop card composition. Add fictional cosmetic icons matching the outfit style: head icon, accessory, emote, back bling, and weapon charm. Make the text and interface look game-like and readable without copying any real brand text.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="p04" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚡ Pokémon Poster</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/04-pokemon-poster.png" alt="Pôster Pokémon" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create an ultra-detailed cinematic Pokémon-style poster featuring the person from Reference 1 as a confident Pokémon champion. Use Reference 1 as the main face and identity reference, preserving facial features, skin tone, hairstyle, facial structure, eye shape, and overall recognizable appearance. Use Reference 2 only for the outfit inspiration: clothing silhouette, colors, materials, accessories, and fashion mood. Do not copy the pose from Reference 1 or Reference 2. Create a new heroic pose: the champion stands in three-quarter view, one hand holding a Poké Ball near the chest, the other hand resting near the waist, looking confidently toward the viewer. Style combines semi-realistic anime painting, cinematic game-poster aesthetics, modern Pokémon concept art, painterly brush strokes, soft polygonal shading, highly detailed character illustration, premium trading-card artwork, and Japanese gaming magazine cover design. Add several original creature companions around the character: one small electric creature near the shoulder, one dragon-like creature behind the character, one small water creature near the foreground, and one ghostly creature in the background. Vertical poster layout, champion centered in a heroic pose, clean cream-colored background, minimalist editorial styling, dynamic energy effects, detailed typography-like graphic elements, barcode-style decorative marks, and premium collectible poster atmosphere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="p05" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🌴 GTA 6 Poster</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/05-gta6-poster.png" alt="Pôster estilo GTA 6" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create a highly detailed 8K portrait poster inspired by the visual style of a modern open-world crime game promotional artwork aesthetic. Use Reference 1 as the exact character identity, face, hairstyle, skin tone, facial structure, and body proportions reference. Use Reference 2 only for the outfit, clothing style, colors, accessories, fabrics, and overall fashion direction. Do not copy the pose from either reference. Create a new cinematic pose: the character is leaning against the hood of a luxury car at night, one hand resting behind them, the other relaxed near the thigh, looking off-camera with confident calm attitude. The poster should feature a cinematic urban atmosphere with bold composition, vibrant neon lighting, layered graphic elements, palm tree shadows, wet asphalt reflections, luxury vehicle silhouettes, nightlife signs, dramatic sunset-to-night color grading, glossy highlights, stylized textures, and modern street-luxury fashion energy. Add fictional city-poster typography, abstract shapes, small decorative texts, game UI-style elements, barcode marks, warning-label style details, and cinematic poster graphics. The design should feel like a high-budget video game cover artwork while keeping the person from Reference 1 recognizable and dressing them according to Reference 2.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="p06" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🦸🏾 Black Superhero / Power Ranger</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/06-black-superhero.png" alt="Super-herói sentai" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create a high-fashion cinematic editorial portrait of the person from Reference 1 as a black superhero inspired by classic team-sentai / ranger aesthetics. Use Reference 1 as the character identity, face, hairstyle, skin tone, facial proportions, and recognizable appearance. Use Reference 2 only for fashion inspiration, outfit details, texture references, accessories, and styling mood, but transform the final costume into a sleek black superhero suit instead of any blue suit. Do not copy the pose from the references. Create a new powerful pose: the character is sitting on a concrete ledge, leaning slightly forward, elbows resting on knees, looking directly at the viewer with a calm intense expression. The subject wears a slim-fit metallic black superhero spandex suit with subtle white geometric diamond patterns, armored paneling, glossy black materials, tactical seams, and premium high-fashion detailing. Beside the subject on the ground is a matching black superhero helmet with a reflective visor. Behind the subject towers a massive hyper-realistic black mechanical animal zord made of weathered dark metal, glowing red eyes, heavy armor plates, and cinematic scale. Shot from a low angle with a professional DSLR wide-angle lens. Dramatic golden-hour backlighting, glowing dust particles, smoke, industrial rooftop environment, futuristic minimalist HUD graphics, white technical interface text, cinematic depth, high-detail realism, editorial superhero poster mood.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="p07" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🟤 Claymation Effect</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/07-claymation.png" alt="Claymation" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Transform the person from Reference 1 into an absurd claymation character while keeping the exact composition logic of a portrait scene, but use a new pose. Reference 1 is the identity reference: preserve the recognizable face, hairstyle, skin tone, facial proportions, and character essence. Reference 2 is only for the outfit, clothing silhouette, colors, accessories, and styling details. Do not copy the poses from either reference. Create a new claymation pose: the character is sitting at a small table, one hand raised awkwardly, the other resting on the table, with a startled cartoon expression. Grotesque claymation caricature style, noodle-like limbs, slightly oversized hands, bulging misaligned eyes, uneven teeth, visible pink gums, wonky facial anatomy, exaggerated but recognizable features, rough handmade clay texture, fingerprints, scratches, dents, soft studio lighting, macro depth of field, stop-motion aesthetic, handmade miniature environment. Keep the outfit inspired by Reference 2 but recreated as clay fabric with visible sculpted folds and rough texture. The background should look like a miniature set with simple props, uneven surfaces, handmade furniture, and intentionally imperfect craft details. 8k, tactile clay texture, absurd humorous mood.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="p08" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">8</span><h2 class="text-2xl font-bold">🪪 Cartoon Doodle ID</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/08-cartoon-id.png" alt="ID cartoon falsa" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create a fake cartoon-style ID card featuring the person from Reference 1 as a messy crayon and marker doodle portrait. Use Reference 1 as the face, hairstyle, skin tone, facial structure, and identity reference. Use Reference 2 only for outfit style, colors, accessories, and fashion details. Do not copy the original pose. Create a new exaggerated ID portrait pose: front-facing head-and-shoulders portrait with a huge goofy smile, raised eyebrows, slightly uneven eyes, and funny cartoon expression. Make the entire ID card look hand-drawn with crooked text, uneven coloring, scribbly textures, thick outlines, childish handwriting, random stickers, doodles, stars, hearts, palm trees, fake stamps, fake numbers, and chaotic meme energy. Add intentionally fake personal details, silly labels, and playful handwritten notes around the portrait. The card should look like a low-quality sketchbook drawing made with cheap crayons and markers. Use the outfit influence from Reference 2 in the cartoon portrait, but simplify it into doodle form. Do NOT make it realistic, professional, official, or believable as a real document.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section id="p09" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">9</span><h2 class="text-2xl font-bold">👠 Fashion Caricature</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/09-fashion-caricature.png" alt="Caricatura de moda" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Turn the person from Reference 1 into a grotesque humorous fashion caricature sketch. Use Reference 1 as the main identity reference, preserving recognizable facial features, hairstyle, skin tone, facial structure, and general character likeness. Use Reference 2 only for the outfit, clothing proportions, accessories, fashion mood, fabrics, and styling details. Do not copy the pose from either reference. Create a new fashion pose: the character stands in a dramatic contrapposto stance, one shoulder raised, one hand tucked into clothing, the other hanging awkwardly, with an overly serious fashion expression. Strongly exaggerated anatomy, elongated proportions, expressive crooked hands, dramatic face, awkward elegant posture, satirical fashion energy, messy ink lines, rough watercolor shading, sketchbook style, vintage magazine illustration on beige aged paper. Add handwritten English notes, arrows, funny observations, absurd personality analysis, fake fashion ratings, tiny doodles, fabric callouts, object sketches, and sarcastic style annotations around the character. Keep the outfit inspired by Reference 2 but exaggerate it into a strange high-fashion silhouette. The final image should look like an editorial fashion analysis page from a weird sketchbook.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="p10" class="mb-12">
+      <div class="flex items-center space-x-4 mb-5"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">10</span><h2 class="text-2xl font-bold">🧸 3D Toy Portrait</h2></div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <figure class="lg:col-span-2 rounded-xl overflow-hidden border border-dark-600 bg-dark-800"><img src="../../assets/img/10-3d-toy.png" alt="Retrato toy 3D" loading="lazy" class="w-full h-auto" onerror="this.style.opacity=.15"><figcaption class="p-2 text-xs text-neutral-400">Exemplo gerado · inemaimg</figcaption></figure>
+        <div class="lg:col-span-3">
+          <div class="relative bg-dark-900 rounded-xl border border-dark-600 p-5">
+            <button onclick="copyPrompt(this)" class="absolute top-3 right-3 px-3 py-1 text-xs bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Copiar</button>
+            <p class="prompt-box text-sm text-neutral-300 leading-relaxed pr-16">Create a stylized 3D designer-toy portrait of the person from Reference 1. Use Reference 1 as the exact identity reference for the face, hairstyle, skin tone, facial proportions, facial structure, and recognizable character features. Use Reference 2 only for outfit inspiration: clothing style, accessories, colors, materials, patches, jewelry, shoes, and fashion mood. Do not copy the pose from Reference 1 or Reference 2. Create a new centered close-up pose: the character faces the camera directly with a calm detached expression, shoulders slightly angled, head subtly tilted, symmetrical designer-toy portrait composition. High-end CGI aesthetic blending Pixar-level smoothness with street-fashion vinyl toy design, soft global illumination, subtle subsurface scattering, ultra-clean rendering, glossy accessories, smooth stylized skin, detailed clothing recreated from Reference 2 as premium toy-like materials. Add playful sticker patches, fashion-tech accessories, miniature badges, small logo-style decorations, removable toy-like elements, cyber-minimalist details, and collectible figure branding. Background: clean matte studio gradient, soft shadows, premium product-photography lighting. The final image should feel like a luxury collectible designer toy portrait with futuristic Gen-Z fashion editorial energy, cute rebellion, cyber-minimalism, and high-end 3D character design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">10 mundos visuais</strong><span class="text-neutral-400"> — do óleo surreal ao designer toy CGI.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Mesma estrutura sempre</strong><span class="text-neutral-400"> — Ref 1 identidade, Ref 2 figurino, pose nova.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Prompts em inglês</strong><span class="text-neutral-400"> — prontos para copiar e colar no Nano Banana 2.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">1.3 — Variações Extras & Como Reproduzir</p></div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo anterior</a>
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Nano Banana 2 — Character Design Styles · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p></div>
+  </footer>
+
+  <script>
+    function copyPrompt(btn) {
+      const text = btn.parentElement.querySelector('.prompt-box').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const old = btn.textContent; btn.textContent = 'Copiado ✓';
+        setTimeout(() => { btn.textContent = old; }, 1600);
+      });
+    }
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

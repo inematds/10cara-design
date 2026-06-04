@@ -1,0 +1,82 @@
+{
+  "character": "a 28-year-old woman with warm medium-brown skin, voluminous curly dark hair, subtle freckles, expressive almond-shaped eyes, recognizable confident face",
+  "images": [
+    {
+      "file": "cover.png",
+      "aspect": "16:9",
+      "width": 1024,
+      "height": 576,
+      "prompt": "Cinematic key-art collage poster for a character design course. Centered: a 28-year-old woman with warm medium-brown skin, voluminous curly dark hair, subtle freckles, confident expression. Around her, faint ghosted fragments of multiple art styles: oil painting brushstrokes, neon game-poster glow, 3d toy render, anime energy. Deep purple and cyan color grading, dark premium background, dramatic rim lighting, magazine cover energy, high detail, clean composition."
+    },
+    {
+      "file": "01-surreal-oil.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Surreal mid-century editorial oil painting of a 28-year-old woman with warm medium-brown skin, voluminous curly dark hair, subtle freckles. She sits confidently in a vintage lounge chair, one leg crossed, one arm resting on the chair, calm deadpan expression, looking slightly away. Stylish surreal lounge interior, cinematic lowbrow atmosphere, palm shadows, vintage lamps, wine glasses, oversized jewelry, painterly brush textures, rich muted color palette, sophisticated absurdity, surreal editorial illustration, vertical composition."
+    },
+    {
+      "file": "02-funny-doodle.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Funny ugly doodle drawing of a young woman with curly dark hair and brown skin, standing slightly hunched, arms half-raised in a confused gesture, exaggerated silly facial features, uncomfortable expression. Quick cheap marker and crayon sketch, messy rough childish style, bad perspective, awkward proportions, uneven scribbly outlines, simple cartoon coloring, lazy internet meme energy, crooked signs and goofy doodles in background. Intentionally low-quality and meme-like, not realistic."
+    },
+    {
+      "file": "03-fortnite-shop.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Hyper-realistic Fortnite item-shop character card. Full-body stylized game character of a 28-year-old woman with brown skin and curly dark hair, urban streetwear skin, standing slightly turned to the side, one hand near the belt, confident game-character posture. Blue gradient background, rarity banner, fictional V-Bucks pricing, cosmetic item icons on the left, polished stylized realism, high-quality game render lighting, realistic fabric textures, official item-shop card composition, game-like readable interface, no real brand text."
+    },
+    {
+      "file": "04-pokemon-poster.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Ultra-detailed cinematic Pokemon-style champion poster featuring a 28-year-old woman with brown skin and curly dark hair as a confident trainer, three-quarter view, one hand holding a glowing ball near the chest. Several original cute creature companions around her: a small electric creature on the shoulder, a dragon-like creature behind, a small water creature in foreground. Semi-realistic anime painting, cinematic game-poster aesthetics, painterly brush strokes, clean cream-colored background, dynamic energy effects, premium collectible poster, vertical layout."
+    },
+    {
+      "file": "05-gta6-poster.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Highly detailed 8K portrait poster in the visual style of a modern open-world crime game promotional artwork. A 28-year-old woman with brown skin and curly dark hair, modern street-luxury fashion, leaning against the hood of a luxury car at night, one hand resting behind, looking off-camera with confident calm attitude. Cinematic urban atmosphere, vibrant neon lighting, palm tree shadows, wet asphalt reflections, dramatic sunset-to-night color grading, glossy highlights, fictional city-poster typography and barcode marks, high-budget game cover artwork."
+    },
+    {
+      "file": "06-black-superhero.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "High-fashion cinematic editorial portrait of a 28-year-old woman with brown skin and curly dark hair as a black superhero inspired by classic team-sentai ranger aesthetics. Slim-fit metallic black superhero suit with subtle white geometric diamond patterns, armored paneling, glossy materials, tactical seams. She sits on a concrete ledge, leaning forward, elbows on knees, calm intense expression. A matching black helmet with reflective visor beside her. Behind her towers a massive black mechanical animal zord of weathered dark metal with glowing red eyes. Low angle, dramatic golden-hour backlighting, glowing dust, industrial rooftop, cinematic realism."
+    },
+    {
+      "file": "07-claymation.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Absurd claymation caricature of a young woman with curly dark hair and brown skin, sitting at a small table, one hand raised awkwardly, the other resting on the table, startled cartoon expression. Grotesque claymation style, noodle-like limbs, slightly oversized hands, bulging misaligned eyes, uneven teeth, wonky but recognizable features, rough handmade clay texture with fingerprints and dents, soft studio lighting, macro depth of field, stop-motion aesthetic, handmade miniature set with simple props, 8k tactile clay texture, absurd humorous mood."
+    },
+    {
+      "file": "08-cartoon-id.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Fake cartoon-style ID card featuring a messy crayon and marker doodle portrait of a young woman with curly dark hair and brown skin, front-facing head-and-shoulders, huge goofy smile, raised eyebrows, slightly uneven eyes, funny cartoon expression. Entire ID card hand-drawn with crooked text, uneven coloring, scribbly textures, thick outlines, childish handwriting, random stickers, stars, hearts, palm trees, fake stamps and numbers, chaotic meme energy. Low-quality sketchbook drawing, not realistic or official."
+    },
+    {
+      "file": "09-fashion-caricature.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Grotesque humorous fashion caricature sketch of a young woman with curly dark hair and brown skin, dramatic contrapposto stance, one shoulder raised, one hand tucked into clothing, overly serious fashion expression. Strongly exaggerated anatomy, elongated proportions, expressive crooked hands, awkward elegant posture, satirical fashion energy, messy ink lines, rough watercolor shading, sketchbook style, vintage magazine illustration on beige aged paper, handwritten English notes and arrows, fake fashion ratings, tiny doodles around the figure."
+    },
+    {
+      "file": "10-3d-toy.png",
+      "aspect": "3:4",
+      "width": 768,
+      "height": 1024,
+      "prompt": "Stylized 3D designer-toy portrait of a 28-year-old woman with brown skin and curly dark hair, facing the camera directly, calm detached expression, shoulders slightly angled, head subtly tilted, symmetrical designer-toy composition. High-end CGI blending Pixar-level smoothness with street-fashion vinyl toy design, soft global illumination, subtle subsurface scattering, ultra-clean rendering, glossy accessories, smooth stylized skin, premium toy-like materials, playful sticker patches, miniature badges, cyber-minimalist details, clean matte studio gradient background, luxury collectible designer toy energy."
+    }
+  ]
+}

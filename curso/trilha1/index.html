@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha · Character Design NB2 | Nano Banana 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s}
+      .wf-a:nth-child(4){animation-delay:.75s} .wf-a:nth-child(5){animation-delay:1s}
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎭</span>
+            <span class="font-bold text-lg hidden sm:inline">Nano Banana 2</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">Trilha</a>
+          <a href="modulo-1-1.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:inline">O Sistema</a>
+          <a href="modulo-1-2.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">10 Prompts</a>
+          <a href="modulo-1-3.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:inline">Variações</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">TRILHA 1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎭 Character Design com Nano Banana 2</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Trave a identidade na Referência 1, empreste só o styling da Referência 2 e mova a mesma pessoa por dez universos visuais — pintura a óleo, meme, render de game, pôster de anime, promo de crime urbano e muito mais.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">3</div><div class="text-xs text-neutral-400">Módulos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">22</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~2h</div><div class="text-xs text-neutral-400">Duração</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Nível</div></div>
+      </div>
+
+      <!-- HERO SVG: 1 identidade -> N mundos -->
+      <div class="rounded-2xl border border-purple-500/30 bg-dark-900/40 p-3 sm:p-4 mt-8 overflow-hidden">
+        <svg viewBox="0 0 1000 240" class="w-full h-auto" role="img" aria-label="Uma identidade na Referência 1 se ramifica em vários mundos visuais que convergem num personagem reconhecível">
+          <defs>
+            <linearGradient id="t1-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+            <filter id="t1-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <pattern id="t1-grid" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#a855f7" opacity="0.12"/></pattern>
+            <marker id="t1-ah" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#c084fc"/></marker>
+            <marker id="t1-ahc" markerWidth="9" markerHeight="9" refX="6.5" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"/></marker>
+          </defs>
+          <rect x="0" y="0" width="1000" height="240" fill="url(#t1-grid)"/>
+          <g fill="none" stroke="#c084fc" stroke-width="2" opacity="0.6">
+            <path d="M196,120 C300,120 320,38 452,38" marker-end="url(#t1-ah)"/>
+            <path d="M196,120 C300,120 320,79 452,79" marker-end="url(#t1-ah)"/>
+            <path d="M196,120 L452,120" marker-end="url(#t1-ah)"/>
+            <path d="M196,120 C300,120 320,161 452,161" marker-end="url(#t1-ah)"/>
+            <path d="M196,120 C300,120 320,202 452,202" marker-end="url(#t1-ah)"/>
+          </g>
+          <g fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.5">
+            <path d="M588,38  C700,38 720,120 800,120" marker-end="url(#t1-ahc)"/>
+            <path d="M588,79  C700,79 720,120 800,120" marker-end="url(#t1-ahc)"/>
+            <path d="M588,120 L800,120" marker-end="url(#t1-ahc)"/>
+            <path d="M588,161 C700,161 720,120 800,120" marker-end="url(#t1-ahc)"/>
+            <path d="M588,202 C700,202 720,120 800,120" marker-end="url(#t1-ahc)"/>
+          </g>
+          <g filter="url(#t1-glow)"><rect x="40" y="84" width="156" height="72" rx="14" fill="#1a1230" stroke="url(#t1-grad)" stroke-width="2.5"/></g>
+          <text x="118" y="114" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="600" font-size="18">Referência 1</text>
+          <text x="118" y="136" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12.5">identidade travada</text>
+          <g font-family="Inter,sans-serif" font-size="13" font-weight="600">
+            <g class="wf-a"><rect x="452" y="22"  width="136" height="32" rx="9" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="520" y="43"  text-anchor="middle" fill="#bfe6ff">óleo surreal</text></g>
+            <g class="wf-a"><rect x="452" y="63"  width="136" height="32" rx="9" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="520" y="84"  text-anchor="middle" fill="#bfe6ff">render de game</text></g>
+            <g class="wf-a"><rect x="452" y="104" width="136" height="32" rx="9" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="520" y="125" text-anchor="middle" fill="#bfe6ff">pôster anime</text></g>
+            <g class="wf-a"><rect x="452" y="145" width="136" height="32" rx="9" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="520" y="166" text-anchor="middle" fill="#bfe6ff">promo GTA</text></g>
+            <g class="wf-a"><rect x="452" y="186" width="136" height="32" rx="9" fill="#0e1b26" stroke="#38bdf8" stroke-width="2"/><text x="520" y="207" text-anchor="middle" fill="#bfe6ff">toy 3D …</text></g>
+          </g>
+          <g filter="url(#t1-glow)"><rect x="800" y="84" width="160" height="72" rx="14" fill="#1a1230" stroke="url(#t1-grad)" stroke-width="2.5"/></g>
+          <text x="880" y="114" text-anchor="middle" fill="#c084fc" font-family="Inter,sans-serif" font-weight="600" font-size="16">Personagem</text>
+          <text x="880" y="136" text-anchor="middle" fill="#e9d5ff" font-family="Inter,sans-serif" font-size="12.5">sempre reconhecível</text>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- MAPA DA TRILHA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="#modulo-1-1" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">1.1</span><span class="text-xs text-neutral-500">~25 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">📐 O Sistema de 2 Referências</h3>
+          <p class="text-xs text-neutral-400">Identidade × styling, separados</p>
+        </a>
+        <a href="#modulo-1-2" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">1.2</span><span class="text-xs text-neutral-500">~60 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🎨 Biblioteca dos 10 Prompts</h3>
+          <p class="text-xs text-neutral-400">Dez mundos, copia e cola</p>
+        </a>
+        <a href="#modulo-1-3" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">1.3</span><span class="text-xs text-neutral-500">~25 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🧪 Variações & Reprodução</h3>
+          <p class="text-xs text-neutral-400">Esticar o sistema sem quebrar</p>
+        </a>
+      </div>
+    </section>
+
+    <h2 class="text-2xl font-bold mb-6">Conteúdo detalhado</h2>
+
+    <!-- MÓDULO 1.1 -->
+    <div id="modulo-1-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">1.1</span><span class="text-xs text-neutral-500">~25 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">📐 O Sistema de 2 Referências</h3>
+        <p class="text-neutral-400 text-sm">A base de tudo: o que cada referência controla e por que o split limpo torna os resultados repetíveis.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🪪</span>
+            <div><span class="font-medium">Referência 1 = identidade</span><span class="text-neutral-500 text-sm ml-2">- rosto, proporções, cabelo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A Referência 1 fixa a identidade: estrutura do rosto, proporções faciais, tom de pele, penteado e a aparência reconhecível do personagem.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que garante que, em qualquer estilo, continua sendo a mesma pessoa. Sem isso, cada geração vira um personagem diferente.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identidade = rosto + proporções + pele + cabelo + "cara". Nunca delegue isso à Referência 2.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">👗</span>
+            <div><span class="font-medium">Referência 2 = figurino</span><span class="text-neutral-500 text-sm ml-2">- só silhueta e styling</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A Referência 2 só dirige a lógica do figurino: silhueta, tipo de tecido, acessórios, paleta de cores e o clima de styling.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você empresta linguagem de moda sem importar o rosto da Ref 2 — assim a roupa muda, mas a pessoa não.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">"Use a Referência 2 APENAS para o figurino." Essa frase aparece em todos os prompts por um motivo.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🤸</span>
+            <div><span class="font-medium">Nova pose sempre</span><span class="text-neutral-500 text-sm ml-2">- não copie a pose das refs</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada prompt instrui explicitamente a NÃO copiar a pose de nenhuma referência e a criar uma pose nova e específica.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que diferencia "mover o personagem por mundos" de "repintar a mesma imagem". A pose nova dá vida e variedade.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Descreva a pose em detalhe (sentado, contrapposto, três-quartos) — vago gera resultado genérico.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">✂️</span>
+            <div><span class="font-medium">O split limpo</span><span class="text-neutral-500 text-sm ml-2">- identidade × styling</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A separação deliberada entre quem a pessoa é (Ref 1) e como o mundo é estilizado (Ref 2 + gênero).</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando identidade e inspiração de roupa se misturam, os resultados ficam aleatórios. O split mantém tudo previsível.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Um prompt = duas fontes claras. Misturou, perdeu o controle.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🧭</span>
+            <div><span class="font-medium">Como usar o sistema</span><span class="text-neutral-500 text-sm ml-2">- trave, troque, gere</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O fluxo de trabalho: mantenha o rosto estável, troque o gênero visual e crie uma pose nova toda vez.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o que torna os prompts úteis para design de personagem repetível em escala — uma marca, um avatar, uma série.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Lock face → change genre → new pose. Três passos, infinitas variações.</p></div>
+          </div></div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧠</span>
+            <div><span class="font-medium">Por que funciona</span><span class="text-neutral-500 text-sm ml-2">- separação proposital</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+            <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O sistema é estável porque o rosto vem de uma referência e a moda de outra — sem travar a imagem numa pose única.</p></div>
+            <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o "porquê" deixa você adaptar o sistema para qualquer estilo novo, não só os 10 do pacote.</p></div>
+            <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identidade forte + gênero visual forte = resultado reconhecível e variado ao mesmo tempo.</p></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-1.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 1.2 -->
+    <div id="modulo-1-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">1.2</span><span class="text-xs text-neutral-500">~60 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎨 Biblioteca dos 10 Prompts</h3>
+        <p class="text-neutral-400 text-sm">As dez direções de character design. Cada uma mantém a mesma pessoa e muda o mundo, a lógica de render e o enquadramento narrativo.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🖼️</span><div><span class="font-medium">Surreal Oil Painting</span><span class="text-neutral-500 text-sm ml-2">- editorial mid-century</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pintura a óleo surreal e editorial: lounge vintage, animais bizarros, pinceladas expressivas, pose sentada e confiante.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mostra que o sistema funciona até em estilos "de galeria", sofisticados e absurdos ao mesmo tempo.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Lowbrow + café culture + 4:5 vertical. Prompt completo no módulo.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">✏️</span><div><span class="font-medium">Funny Doodle</span><span class="text-neutral-500 text-sm ml-2">- rabisco feio e meme</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Desenho feio de marcador e giz de cera: proporções tortas, traços rabiscados, energia de meme intencionalmente ruim.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Provar identidade num estilo "low-quality" é difícil — e é exatamente onde o lock de rosto brilha.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pedir explicitamente "NÃO realista, NÃO polido". Caos proposital.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🎮</span><div><span class="font-medium">Fortnite Shop</span><span class="text-neutral-500 text-sm ml-2">- card de item-shop</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Card de loja de skin: fundo azul gradiente, banner de raridade, preços fictícios em V-Bucks, render de corpo inteiro.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Layout de interface + personagem reconhecível = colecionável. Sem copiar texto de marca real.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ícones cosméticos fictícios + realismo estilizado polido.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">⚡</span><div><span class="font-medium">Pokémon Poster</span><span class="text-neutral-500 text-sm ml-2">- campeão + criaturas</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pôster de campeão estilo anime/concept art com criaturas originais ao redor e pose heroica em três-quartos.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Combina pintura semi-realista, capa de revista japonesa e arte de carta premium num só prompt.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Criaturas originais (não copiar IP) + fundo creme minimalista.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🌴</span><div><span class="font-medium">GTA 6 Poster</span><span class="text-neutral-500 text-sm ml-2">- promo de crime urbano</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Retrato 8K no estilo de arte promocional de open-world: neon, asfalto molhado, carro de luxo, atitude calma.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mostra grading cinematográfico e tipografia de pôster — visual de capa de jogo AAA.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Inspirado no estilo, sem usar marca real. Tipografia e selos fictícios.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🦸🏾</span><div><span class="font-medium">Black Superhero / Sentai</span><span class="text-neutral-500 text-sm ml-2">- ranger + zord</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Retrato editorial de super-herói: traje preto metálico com padrões geométricos, capacete ao lado, zord mecânico gigante atrás.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Aqui a Ref 2 inspira a moda, mas o traje é transformado num conceito novo (preto, não azul).</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Low angle + golden hour + HUD futurista minimalista.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span><span class="text-lg">🟤</span><div><span class="font-medium">Claymation Effect</span><span class="text-neutral-500 text-sm ml-2">- massinha grotesca</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Caricatura em massinha: membros de macarrão, mãos grandes, olhos desalinhados, textura de argila feita à mão.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Estilo stop-motion testa o limite do reconhecível — features exageradas mas ainda "a pessoa".</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cenário miniatura + macro depth of field + figurino recriado como tecido de argila.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">8</span><span class="text-lg">🪪</span><div><span class="font-medium">Cartoon Doodle ID</span><span class="text-neutral-500 text-sm ml-2">- carteirinha falsa</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Carteira de identidade desenhada à mão: texto torto, adesivos, carimbos falsos, retrato com sorriso bobo.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mistura documento + doodle: layout estruturado com execução caótica de propósito.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dados fictícios e bobos. NÃO deve parecer documento real.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">9</span><span class="text-lg">👠</span><div><span class="font-medium">Fashion Caricature</span><span class="text-neutral-500 text-sm ml-2">- sketch de moda</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Caricatura de moda grotesca: anatomia esticada, pose dramática, anotações manuscritas e ratings de moda falsos.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Página de "análise editorial" de um sketchbook estranho — exagero com propósito.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tinta bagunçada + aquarela + papel bege envelhecido.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">10</span><span class="text-lg">🧸</span><div><span class="font-medium">3D Toy Portrait</span><span class="text-neutral-500 text-sm ml-2">- designer toy CGI</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Retrato de designer toy: CGI suave estilo Pixar + vinil de street fashion, acessórios glossy, patches e badges.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fecha o pacote com um estilo colecionável premium, futurista e fofo.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Subsurface scattering + iluminação de product photography + gradiente de estúdio.</p></div></div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-2.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 1.3 -->
+    <div id="modulo-1-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">1.3</span><span class="text-xs text-neutral-500">~25 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🧪 Variações Extras & Como Reproduzir</h3>
+        <p class="text-neutral-400 text-sm">O sistema estica até variações ainda mais estranhas — e o passo a passo para reproduzir tudo com qualidade.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🗿</span><div><span class="font-medium">Claymation Character</span><span class="text-neutral-500 text-sm ml-2">- variação extra</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma segunda leitura da massinha, mostrando que o lock de identidade aguenta exagero extremo.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Variações do mesmo gênero ampliam o pacote sem criar prompts do zero.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reusar a linguagem de estilo, mudar pose e props.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🃏</span><div><span class="font-medium">Fake Cartoon ID Card</span><span class="text-neutral-500 text-sm ml-2">- variação extra</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Humor de carteirinha falsa: outra forma de provar que documento + doodle convivem.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Mostra como layout rígido e execução caótica geram resultados memoráveis.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identidade forte sobrevive até em estilo "ruim de propósito".</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🖌️</span><div><span class="font-medium">Grotesque Fashion Sketch</span><span class="text-neutral-500 text-sm ml-2">- variação extra</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Linguagem de sketch de moda grotesco esticada ao máximo, com anotações sarcásticas.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Confirma que estilos "sketchbook" funcionam quando o lock de identidade é forte o bastante.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Silhueta de alta-costura estranha + callouts de tecido.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🎯</span><div><span class="font-medium">Separação proposital</span><span class="text-neutral-500 text-sm ml-2">- por que se mantém estável</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O rosto vem de uma referência e a moda de outra — por isso o resultado é reconhecível sem travar numa pose.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o princípio que você leva para qualquer estilo novo que inventar.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Identidade fixa + styling móvel = repetibilidade.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🌐</span><div><span class="font-medium">Cada mundo, um gênero forte</span><span class="text-neutral-500 text-sm ml-2">- variedade real</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Óleo, doodle, render de game, pôster de anime, promo open-world, editorial sentai, massinha, ID falsa, sketch e toy CGI.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Gêneros visuais bem definidos geram saídas muito diferentes da mesma pessoa.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Quanto mais específico o gênero, mais distinto o resultado.</p></div></div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left"><span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">⚙️</span><div><span class="font-medium">Workflow de reprodução</span><span class="text-neutral-500 text-sm ml-2">- inemaimg na prática</span></div></button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O passo a passo para gerar: escolher modelo, travar identidade, descrever o mundo e iterar pose.</p></div><div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sai do conceito para a prática — incluindo como as imagens deste guia foram feitas localmente.</p></div><div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Modelo edit-capaz para 2 refs; T2I para estilo único. Iterar barato, finalizar em alta.</p></div></div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-10">
+      <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar ao início</a>
+      <a href="modulo-1-1.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Começar pelo módulo 1.1 →</a>
+    </div>
+
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-1-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">1.1</span><span class="font-semibold">O Sistema de 2 Referências</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div>
+      <iframe data-src="modulo-1-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">1.2</span><span class="font-semibold">Biblioteca dos 10 Prompts</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div>
+      <iframe data-src="modulo-1-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">1.3</span><span class="font-semibold">Variações Extras & Como Reproduzir</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div>
+      <iframe data-src="modulo-1-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Nano Banana 2 — Character Design Styles · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        const iframe = modal.querySelector('iframe');
+        if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => modal.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
