@@ -4,6 +4,8 @@ import json, base64, urllib.request, os, time, sys
 
 BASE = os.environ.get("INEMAIMG_URL", "http://localhost:8000")
 MODEL = os.environ.get("INEMAIMG_MODEL", "ernie")
+# flux2-klein é step-distilled (4 steps); demais usam 50.
+STEPS = int(os.environ.get("INEMAIMG_STEPS", "4" if "klein" in MODEL else "50"))
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "img")
 os.makedirs(OUT, exist_ok=True)
@@ -42,7 +44,7 @@ for item in data["images"]:
         "prompt": item["prompt"],
         "width": item["width"],
         "height": item["height"],
-        "steps": 50,
+        "steps": STEPS,
     }
     t = time.time()
     try:

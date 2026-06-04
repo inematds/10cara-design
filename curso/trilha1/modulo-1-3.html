@@ -195,7 +195,7 @@
         <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🧩</span> Modelo certo para cada caso</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
           <li><strong>Duas referências (identidade + figurino):</strong> use um modelo <em>edit-capaz</em> que aceita imagens de entrada (ex.: Qwen-Edit).</li>
-          <li><strong>Estilo único / sem referência:</strong> um modelo text-to-image puro basta (ex.: ERNIE) — foi assim que as imagens deste guia foram feitas.</li>
+          <li><strong>Estilo único / sem referência:</strong> um modelo text-to-image puro basta (ex.: flux2-klein) — foi assim que as imagens deste guia foram feitas.</li>
           <li><strong>Iteração rápida:</strong> baixe a resolução e os steps; só finalize em alta no take aprovado.</li>
         </ul>
       </div>
@@ -203,7 +203,7 @@
         <div class="text-neutral-500 mb-2"># exemplo: gerar um estilo único via inemaimg (text-to-image)</div>
         <span class="text-neutral-300">curl -s http://localhost:8000/generate \</span><br>
         <span class="text-neutral-300">&nbsp;&nbsp;-H "Content-Type: application/json" \</span><br>
-        <span class="text-neutral-300">&nbsp;&nbsp;-d '{"model":</span><span class="text-purple-400">"ernie"</span><span class="text-neutral-300">,"prompt":</span><span class="text-sky-400">"3D designer-toy portrait ..."</span><span class="text-neutral-300">,"width":768,"height":1024}'</span>
+        <span class="text-neutral-300">&nbsp;&nbsp;-d '{"model":</span><span class="text-purple-400">"flux2-klein"</span><span class="text-neutral-300">,"prompt":</span><span class="text-sky-400">"3D designer-toy portrait ..."</span><span class="text-neutral-300">,"width":768,"height":1024,"steps":4}'</span>
       </div>
       <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
         <h3 class="text-lg font-semibold text-purple-400 mb-3 flex items-center"><span class="mr-2">🔑</span> O passo a passo</h3>

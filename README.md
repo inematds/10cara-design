@@ -39,7 +39,7 @@ assets/
 
 ## Imagens de exemplo
 
-As 10 imagens da galeria foram geradas localmente com **[inemaimg](https://github.com/inematds)** usando o modelo **ERNIE** (licença aberta), text-to-image, sobre um personagem fictício consistente — ilustrando o mundo visual resultante de cada prompt.
+As 10 imagens da galeria foram geradas localmente com **[inemaimg](https://github.com/inematds)** usando o modelo **flux2-klein**, text-to-image, sobre um personagem fictício consistente — ilustrando o mundo visual resultante de cada prompt. Projeto de pesquisa/educação.
 
 ---
 
