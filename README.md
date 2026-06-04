@@ -1,4 +1,4 @@
-# 🎭 Nano Banana 2 — Character Design Styles
+# 🎭 10cara-design — Character Design Styles
 
 > Uma pessoa, seis mundos visuais. Pacote de **10 prompts** que transformam um único personagem em arte surreal, ilustração-meme, render de loja de game, pôster de anime, promo estilo GTA e moda inspirada em sentai — sem perder a identidade.
 
@@ -39,8 +39,10 @@ assets/
 
 ## Imagens de exemplo
 
-As 10 imagens da galeria foram geradas localmente com **[inemaimg](https://github.com/inematds)** usando o modelo **flux2-klein**, text-to-image, sobre um personagem fictício consistente — ilustrando o mundo visual resultante de cada prompt. Projeto de pesquisa/educação.
+As 10 imagens da galeria foram geradas localmente com **[inemaimg](https://github.com/inematds)** usando o modelo **flux2-klein** (gratuito e bem rápido, 4 steps), text-to-image, sobre um personagem fictício consistente — ilustrando o mundo visual de cada prompt.
+
+> 😄 Nota honesta: como foi tudo no flux2-klein (de graça), a qualidade das imagens não é perfeita. É projeto de pesquisa/educação — com um modelo mais pesado dá pra subir bastante.
 
 ---
 
-Nano Banana 2 — Character Design Styles · **INEMA.CLUB** · 2026
+10cara-design — Character Design Styles · **INEMA.CLUB** · 2026
